@@ -1,15 +1,18 @@
 import React from 'react'
-import {HashRouter as Router, Route} from 'react-router-dom'
 
+import Cats from './Cats'
 
+const cats = [
+  {name: 'Engie'},
+  {name: 'Harrison'},
+  {name: 'Kelly'}
+]
 
 const App = () => (
-  <Router>
-    <div className='app-container section'>
-      <h1>Hello World</h1>
-      {/* <Route exact path="/" component={ComponentToRender} /> */}
-    </div>
-  </Router>
+  <div className='app-container section'>
+    <h1>Hello World</h1>
+    <Cats cats={cats} />
+  </div>
 )
 
 export default App
