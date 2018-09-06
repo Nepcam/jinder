@@ -11,7 +11,7 @@ export default function JobDetail (props) {
            {props.data.body.map(jobInfo => {
             return (
               <div className="listings">
-                <li><img className='logo' src={jobInfo.company_logo}></img><a href={jobInfo.url}>{jobInfo.title}</a></li>
+                <li><img className='logo' src={jobInfo.company_logo}></img><a href='#' onClick={}>{jobInfo.title}</a></li>
                 <hr/>
               </div>
             )
