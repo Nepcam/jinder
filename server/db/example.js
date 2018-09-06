@@ -1,9 +1,9 @@
-// const db = require('./connection')
-//
-// function exampleDbFunction () {
-//   return db('table_name')
-// }
-//
-// module.exports = {
-//   exampleDbFunction
-// }
+const db = require('./connection')
+
+function exampleDbFunction () {
+  return db('jobs')
+}
+
+module.exports = {
+  exampleDbFunction
+}
