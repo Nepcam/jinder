@@ -1,3 +1,23 @@
 body {
     color: red;
 }
+
+img{
+    width:100%;
+    max-width:100px;
+    margin-right: 20px
+}
+
+.listings{
+    padding-top: 5px;
+}
+
+h1{
+    text-align: center
+}
+
+.logo {
+    margin:  auto;
+    max-width: 200px;
+    padding: 20px;
+}

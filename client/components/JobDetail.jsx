@@ -9,9 +9,13 @@ export default function JobDetail (props) {
       <div className="jobList">
        <ul>
            {props.data.body.map(jobInfo => {
-            return <li><img className='logo' src={jobInfo.company_logo}></img><a href={jobInfo.url}>{jobInfo.title}</a></li>
-           })}
-         
+            return (
+              <div className="listings">
+                <li><img className='logo' src={jobInfo.company_logo}></img><a href={jobInfo.url}>{jobInfo.title}</a></li>
+                <hr/>
+              </div>
+            )
+          })}
        </ul>
       </div>
     )
