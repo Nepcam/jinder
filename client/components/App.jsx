@@ -2,6 +2,7 @@ import React from 'react'
 import {HashRouter as Router, Route} from 'react-router-dom'
 import JobDetail from './JobDetail'
 import request from 'superagent'
+import Favs from './Favs'
 
 
 class App extends React.Component {
@@ -35,7 +36,9 @@ class App extends React.Component {
       <button onClick={this.getData}>
            click me</button>
       {this.state.apiInfo && <JobDetail data={this.state.apiInfo}/>} 
+
     </div>
+    <Favs />
   </div>
   )
 
