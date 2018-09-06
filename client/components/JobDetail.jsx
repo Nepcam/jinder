@@ -6,10 +6,10 @@ export default function JobDetail (props) {
     
 
     return (
-      <div>
+      <div className="jobList">
        <ul>
            {props.data.body.map(jobInfo => {
-            return    <li>{jobInfo.title}</li>
+            return <li><img className='logo' src={jobInfo.company_logo}></img><a href={jobInfo.url}>{jobInfo.title}</a></li>
            })}
          
        </ul>
