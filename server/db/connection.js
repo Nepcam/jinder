@@ -3,7 +3,7 @@ const config = require('../../knexfile')[environment]
 const connection = require('knex')(config)
 
 // require this module into db files to use as the db connection
-  const db = require('./connection')
+  const db = connection
   db('jobs')
 
 module.exports = connection
