@@ -10,31 +10,55 @@ class App extends React.Component {
   super(props)
 
     this.state = {
-      apiInfo: ''
+      apiInfo: '',
+      searchTerm: '',
+      location: ''
     }
     this.getData = this.getData.bind(this)
   
   }
 
-  getData(){
-      request.get('http://jobs.github.com/positions.json?description=python&location=sf&full_time=true')
+  getData(location, search){
+      request.get(`http://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=true`)
      .then(data => {
       this.setState({
         apiInfo: data
       })
       console.log(this.state);
-      
      })
 }
+
+
+updateInputValue(evt) {
+  this.setState({
+    searchTerm: evt.target.value
+  });
+  
+}
+submit(e) {
+  e.preventDefault()
+  this.getData(this.state.searchTerm)
+}
+updateLocation(evt) {
+  this.setState({
+    location: evt.target.value
+  });
+  
+  this.getData(evt.target.value, this.state.searchTerm)
+}
+
   
   render (){
   return (
     <div>
   
     <div className='app-container section'>
-      <h1>Jinder</h1>
-      <button onClick={this.getData}>
-           click me</button>
+    Job Type:
+    <input value={this.state.searchTerm} onChange={evt => this.updateInputValue(evt)}/>
+    Location: 
+    <input value={this.state.location} onChange={evt => this.updateLocation(evt)}/>
+
+     
       {this.state.apiInfo && <JobDetail data={this.state.apiInfo}/>} 
 
     </div>
