@@ -1,7 +1,8 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow, render } from 'enzyme'
 
 import App from '../../client/components/App'
+import Favs from '../../client/components/Favs'
 import './setup-dom'
 
 // test('App contains an <input> element', () => {
@@ -16,9 +17,10 @@ test('App reading .title text', () => {
   const wrapper = shallow(<App />)
 
   //act
+  const actual = wrapper.find('.title').text()
 
   //assert
-  expect(wrapper.find('.title').text()).toEqual(expected)
+  expect(actual).toEqual(expected)
 
   // const input = shallow(<App searchTerm="search" location="location"/>)
   // expect(input.text()).toEqual('search');
@@ -37,21 +39,17 @@ test('Input equals true', () => {
   // expect(wrapper.find('.searchInput'))
 })
 
-test('testing state object', () => {
+test('App contains JobDetail component', () => {
+  // Arrange
+  // const jobs = ['kjnkjn']
+  const expected = 'Your Favourites are :'
 
-  let expected = {
-    bath: true,
-    bedrooms: 4,
-    kitchen: {
-    amenities: ['oven', 'stove', 'washer'],
-    area: 20,
-    wallColor: 'white',
-    },
-  }
+  // Act
+  const wrapper = shallow(<Favs  />)
+  const actual = wrapper.find('.Favs h4').text()
 
-  const wrapper = shallow(<App />)
-
-  expect()
+  // Assert
+  expect(actual).toMatch(expected)
 })
 
 
