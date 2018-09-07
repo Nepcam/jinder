@@ -15,7 +15,8 @@ class App extends React.Component {
         this.state = {
             apiInfo: '',
             searchTerm: '',
-            location: ''
+            location: '',
+            s: 'string'
         }
         this.getData = this.getData.bind(this)
 
@@ -30,6 +31,8 @@ class App extends React.Component {
                 console.log(this.state);
             })
     }
+
+    
 
 
     updateInputValue(evt) {
@@ -54,11 +57,10 @@ class App extends React.Component {
     render() {
         return (
             <div>
-  
-    <div className='app-container section'>
-    <div class="search">
-      <div id="job">Job Type:</div>
-        <input class="searchInput" value={this.state.searchTerm} onChange={evt => this.updateInputValue(evt)}/>
+                <div className='app-container section'>
+                <div class="search">
+                <div className='title' id="job">Job Type:</div>
+                <input class="searchInput" value={this.state.searchTerm} onChange={evt => this.updateInputValue(evt)}/>
 
             <div id="location">
             Location: 
@@ -74,6 +76,7 @@ class App extends React.Component {
         )
 
     }
+    
 }
 
 export default App
