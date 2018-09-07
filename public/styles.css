@@ -1,6 +1,3 @@
-body {
-    color: red;
-}
 
 img{
     width:100%;
@@ -12,7 +9,8 @@ img{
     padding-top: 5px;
 }
 
-h1{
+h1, h2{
+    color: red;
     text-align: center
 }
 
@@ -20,4 +18,13 @@ h1{
     margin:  auto;
     max-width: 200px;
     padding: 20px;
+}
+
+/* #listing{
+    color: black;
+} */
+
+.jobDescription{
+
+color: black
 }
