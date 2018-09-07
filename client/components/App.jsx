@@ -15,7 +15,8 @@ class App extends React.Component {
         this.state = {
             apiInfo: '',
             searchTerm: '',
-            location: ''
+            location: '',
+            return: false
         }
         this.getData = this.getData.bind(this)
 
@@ -25,7 +26,8 @@ class App extends React.Component {
         request.get(`http://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=true`)
             .then(data => {
                 this.setState({
-                    apiInfo: data
+                    apiInfo: data,
+                    return: true
                 })
                 console.log(this.state);
             })
@@ -66,7 +68,7 @@ class App extends React.Component {
           <input class="searchInput" value={this.state.location} onChange={evt => this.updateLocation(evt)}/>
     </div>
      
-      {this.state.apiInfo && <JobDetail data={this.state.apiInfo}/>} 
+      {this.state.return && <JobDetail data={this.state.apiInfo}/>} 
 
     </div>
     <Favs />
