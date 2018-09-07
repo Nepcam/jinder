@@ -16,9 +16,11 @@ class App extends React.Component {
             apiInfo: '',
             searchTerm: '',
             location: '',
-            return: false
+            return: false,
+            seeFaves: false
         }
         this.getData = this.getData.bind(this)
+        this.seeFaves = this.seeFaves.bind(this)
 
     }
 
@@ -33,6 +35,12 @@ class App extends React.Component {
             })
     }
 
+
+    seeFaves(){
+      this.setState(prevState => ({
+        seeFaves: !prevState.seeFaves
+      }));
+    }
 
     updateInputValue(evt) {
         this.setState({
@@ -58,20 +66,21 @@ class App extends React.Component {
             <div>
   
     <div className='app-container section'>
-    <div class="search">
+    <div className="search">
       <div id="job">Job Type:</div>
-        <input class="searchInput" value={this.state.searchTerm} onChange={evt => this.updateInputValue(evt)}/>
+        <input className="searchInput" value={this.state.searchTerm} onChange={evt => this.updateInputValue(evt)}/>
 
             <div id="location">
             Location: 
             </div>
-          <input class="searchInput" value={this.state.location} onChange={evt => this.updateLocation(evt)}/>
+          <input className="searchInput" value={this.state.location} onChange={evt => this.updateLocation(evt)}/>
     </div>
      
       {this.state.return && <JobDetail data={this.state.apiInfo}/>} 
 
     </div>
-    <Favs />
+    <a href="#" onClick={this.seeFaves}>See Favourites</a>
+    {this.state.seeFaves && <Favs />}
   </div>
         )
 
