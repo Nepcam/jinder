@@ -96,7 +96,6 @@ class App extends React.Component {
     {this.state.seeFaves && <Favs />}
   </div>
 		)
-
 	}
 }
 
