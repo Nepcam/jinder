@@ -1,14 +1,23 @@
 const db = require('./connection')
 
-function getFavJobs () {
-  return db('jobs')
+export function getFavJobs () {
+  console.log('you hit the func');
+  
+  return db('jobs').select()
 }
 
-function saveFavJobs (job) {
-  return db('jobs').insert(job)
+export function saveFavJobs (job) {
+  console.log('you hit the func');
+  console.log(job);
+  let title = job.title
+  console.log(title);
+  
+  return db('jobs').insert({
+    title: title
+  }).then()
 }
 
-module.exports = {
-  getFavJobs,
-  saveFavJobs
-}
+// module.exports = {
+//   getFavJobs,
+//   saveFavJobs
+// }
