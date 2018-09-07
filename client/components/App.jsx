@@ -25,7 +25,7 @@ class App extends React.Component {
 	}
 
 	getData(location, search) {
-		request.get(`http://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=true`)
+		request.get(`https://jobs.github.com/positions.json?description=${search}&location=${location}&full_time=true`)
 			.then(data => {
 				this.setState({
 					apiInfo: data,
